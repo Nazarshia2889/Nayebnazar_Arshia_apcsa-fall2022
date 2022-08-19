@@ -1,10 +1,10 @@
 //� A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
-//Lab  -
+//Name - Arshia Nayebnazar
+//Date - 08/18/2022
+//Class - AP CSA
+//Lab  - Stars Runner
 
 import static java.lang.System.*;
 
@@ -25,6 +25,7 @@ public class StarsRunner
 	   ref.printTwentyStars();
 	   ref.printTwentyDashes();
 	   ref.printTwoBlankLines();
+	   
 	   ref.printASmallBox();
 	   ref.printASmallBox();
    }

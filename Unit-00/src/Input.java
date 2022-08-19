@@ -4,7 +4,7 @@
 //Name - Arshia Nayebnazar
 //Date - 08/17/2022
 //Class - AP CSA
-//Lab  -Input
+//Lab  - Input
 
 import static java.lang.System.*;
 import java.util.Scanner;
