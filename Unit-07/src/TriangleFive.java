@@ -39,7 +39,7 @@ public class TriangleFive
 			for(int j = amount; j >= ((amount - i)+1); j--) {
 				newLetter = (char) (letter + (amount - j));
 				if(newLetter > 'Z') {
-					newLetter = (char) ((char) newLetter % 'Z' + ('A' - 1));
+					newLetter = (char) (newLetter % 'Z' + ('A' - 1));
 				}
 				output += (newLetter + "").repeat(j) + " ";
 			}
