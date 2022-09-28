@@ -1,8 +1,5 @@
 
 import java.util.List;
-
-import activity1.Card;
-
 import java.util.ArrayList;
 
 /**
@@ -42,6 +39,8 @@ public class Deck {
 				cards[(suits.length * i) + j] = new Card(ranks[i], suits[j], values[i]);
 			}
 		}
+		size = cards.length;
+		shuffle();
 	}
 
 
@@ -69,21 +68,30 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-		size = cards.length;
-		Card[] shuffled = new Card[size];
-		for(int k = 0; k < size; k++) {
-			int j;
-			boolean cont = true;
-			do {
-				j = (int) (Math.random() * size);
-				if(cards[j] != null) {
-					cont = false;
-				}
-			} while(cont);
-			shuffled[k] = cards[j];
-			cards[j] = null;
+//		size = cards.length;
+//		Card[] shuffled = new Card[size];
+//		for(int k = 0; k < size; k++) {
+//			int j;
+//			boolean cont = true;
+//			do {
+//				j = (int) (Math.random() * size);
+//				if(cards[j] != null) {
+//					cont = false;
+//				}
+//			} while(cont);
+//			shuffled[k] = cards[j];
+//			cards[j] = null;
+//		}
+//		cards = shuffled.clone();
+		for(int k = cards.length - 1; k > 0; k--) {
+			int howMany = k + 1;
+			int start = 0;
+			int randPos = (int) (Math.random() * howMany) + start;
+			Card temp = cards[k];
+			cards[k] = cards[randPos];
+			cards[randPos] = temp;
+			size = cards.length;
 		}
-		cards = shuffled.clone();
 	}
 
 	/**
