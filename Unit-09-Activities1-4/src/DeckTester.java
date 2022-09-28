@@ -10,6 +10,7 @@ public class DeckTester {
 	 */
 	public static void main(String[] args) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		
 		String[] ranks = {"jack", "queen", "king"};
 		String[] suits = {"hearts", "clubs", "spades"};
 		int[] points = {10, 11, 12};
@@ -40,48 +41,48 @@ public class DeckTester {
 		deck3.deal();
 		System.out.println(deck3);
 		
-		
+//		Act 4 shuffle test
 		String[] ranks4 = new String[52];
-        String[] suits4 = new String[52];
-        int[] pointValues4 = new int[52];
-        for (int i = 0; i < 52; i++) {
-            String rank = "";
-            String suit = "";
-            if ( (i+1) % 13 == 11 ) {
-                rank = "Jack";
-            }
-            else if ( (i+1) % 13 == 12 ) {
-                rank = "Queen";
-            }
-            else if ( (i+1) % 13 == 0 ) {
-                rank = "King";
-            }
-            else if ( (i+1) % 13 == 1 ) {
-                rank = "Ace";
-            }
-            else {
-                rank = Integer.toString((i + 1) % 13);
-            }
-            
-            if (i < 13) {
-                suit = "Hearts";
-            }
-            else if (i < 26) {
-                suit = "Diamonds";
-            }
-            else if (i < 39) { 
-                suit = "Clubs";
-            }
-            else {
-                suit = "Spades";
-            }
-            
-            ranks4[i] = rank;
-            suits4[i] = suit;
-            pointValues4[i] = ((i+1) % 13);
-        }
-        
-        Deck deck4 = new Deck(ranks4, suits4, pointValues4);
-        System.out.println(deck4);
+		String[] suits4 = new String[52];
+		int[] pointValues4 = new int[52];
+		for (int i = 0; i < 52; i++) {
+		    String rank = "";
+		    String suit = "";
+		    if ( (i+1) % 13 == 11 ) {
+		        rank = "Jack";
+		    }
+		    else if ( (i+1) % 13 == 12 ) {
+		        rank = "Queen";
+		    }
+		    else if ( (i+1) % 13 == 0 ) {
+		        rank = "King";
+		    }
+		    else if ( (i+1) % 13 == 1 ) {
+		        rank = "Ace";
+		    }
+		    else {
+		        rank = Integer.toString((i + 1) % 13);
+		    }
+		    
+		    if (i < 13) {
+		        suit = "Hearts";
+		    }
+		    else if (i < 26) {
+		        suit = "Diamonds";
+		    }
+		    else if (i < 39) { 
+		        suit = "Clubs";
+		    }
+		    else {
+		        suit = "Spades";
+		    }
+		    
+		    ranks4[i] = rank;
+		    suits4[i] = suit;
+		    pointValues4[i] = ((i+1) % 13);
+		}
+		
+		Deck deck4 = new Deck(ranks4, suits4, pointValues4);
+		System.out.println(deck4);
 	}
 }
