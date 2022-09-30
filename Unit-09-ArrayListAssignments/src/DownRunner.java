@@ -40,23 +40,6 @@ public class DownRunner
 		System.out.println(new ListDown().go(arr2));
 		
 		
-		ArrayList<Integer> arr3 = new ArrayList<Integer>();
-		arr3.add(10);
-		arr3.add(20);
-		arr3.add(30);
-		arr3.add(40);
-		arr3.add(50);
-		arr3.add(-11818);
-		arr3.add(40);
-		arr3.add(30);
-		arr3.add(20);
-		arr3.add(10);
-		System.out.println(new ListDown().go(arr3));
-		
-		ArrayList<Integer> arr4 = new ArrayList<Integer>();
-		arr4.add(32767);
-		System.out.println(new ListDown().go(arr4));
-		
 		
 	}
 }
