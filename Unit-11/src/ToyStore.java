@@ -5,6 +5,7 @@
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import static java.lang.System.*;
 
@@ -46,16 +47,25 @@ public class ToyStore
   
   	public String getMostFrequentToy()
   	{
-  		return "";
+  		int max = toyList.get(0).getCount();
+  		String frequent = toyList.get(0).getName();
+  		for(Toy t : toyList) {
+  			if(t.getCount() > max) {
+  				frequent = t.getName();
+  			}
+  		}
+  		return frequent;
   	}  
   
   	public void sortToysByCount()
   	{
   		
+  		toyList.sort((a, b) -> a.getCount() > b.getCount() ? 1 : -1);;
+  		
   	}  
   	  
 	public String toString()
 	{
-	   return "";
+	   return toyList.toString();
 	}
 }
