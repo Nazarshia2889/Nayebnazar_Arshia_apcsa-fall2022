@@ -56,8 +56,8 @@ public class MPHRunner
 
 		MilesPerHour test3 = new MilesPerHour(dist, hrs, mins);
 		out.print("\n");
-		test2.calcMPH();
-		test2.print();
+		test3.calcMPH();
+		test3.print();
 		
 		out.print("Enter the distance :: ");
 		dist = keyboard.nextInt();
@@ -70,7 +70,7 @@ public class MPHRunner
 
 		MilesPerHour test4 = new MilesPerHour(dist, hrs, mins);
 		out.print("\n");
-		test2.calcMPH();
-		test2.print();
+		test4.calcMPH();
+		test4.print();
 	}
 }
