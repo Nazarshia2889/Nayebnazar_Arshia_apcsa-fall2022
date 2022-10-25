@@ -127,6 +127,6 @@ public class ElevensBoard extends Board {
 				king = true;
 			}
 		}
-		return jack == queen == king == true;
+		return jack && queen && king;
 	}
 }
