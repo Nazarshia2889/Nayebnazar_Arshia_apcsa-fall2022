@@ -26,7 +26,9 @@ public class WordSearch
     	for(int i = 0; i < m.length; i++) {
     		for(int j = 0; j < m[i].length; j++) {
     			curr = (checkRight(word, i, j) || checkLeft(word, i, j) ||
-    					checkUp(word, i, j) || checkDown(word, i , j));
+    					checkUp(word, i, j) || checkDown(word, i , j) ||
+    					checkDiagUpRight(word, i , j) || checkDiagUpLeft(word, i , j) ||
+    					checkDiagDownLeft(word, i , j) || checkDiagDownRight(word, i, j));
     			if(curr) {
     				return true;
     			}
@@ -37,17 +39,14 @@ public class WordSearch
 
 	public boolean checkRight(String w, int r, int c)
    {
-		if(c + w.length()-1 > m[0].length) {
+		if(c + w.length() > m[r].length) {
 			return false;
 		}
 		for(int i = 0; i < w.length(); i++) {
-			System.out.println(m[r][c]);
-			System.out.println(w.charAt(i));
-			System.out.println();
-			if(m[r][c] != (w.charAt(i) + "")) {
+			if(!m[r][c].equals((w.charAt(i) + ""))) {
 				return false;
 			}
-			c += i + 1;
+			c++;
 		}
 		return true;
 	}
@@ -58,10 +57,10 @@ public class WordSearch
 			return false;
 		}
 		for(int i = 0; i < w.length(); i++) {
-			if(m[r][c] != (w.charAt(i) + "")) {
+			if(!m[r][c].equals((w.charAt(i) + ""))) {
 				return false;
 			}
-			c -= i + 1;
+			c--;
 		}
 		return true;
 	}
@@ -72,10 +71,10 @@ public class WordSearch
 			return false;
 		}
 		for(int i = 0; i < w.length(); i++) {
-			if(m[r][c] != (w.charAt(i) + "")) {
+			if(!m[r][c].equals((w.charAt(i) + ""))) {
 				return false;
 			}
-			r -= i + 1;
+			r--;
 		}
 		return true;
 	}
@@ -86,36 +85,76 @@ public class WordSearch
 			return false;
 		}
 		for(int i = 0; i < w.length(); i++) {
-			if(m[r][c] != (w.charAt(i) + "")) {
+			if(!m[r][c].equals((w.charAt(i) + ""))) {
 				return false;
 			}
-			r += i + 1;
+			r++;
 		}
 		return true;
 	}
 
 	public boolean checkDiagUpRight(String w, int r, int c)
 	{
-		return false;
+		if(r - w.length() < 0 || c + w.length() > m[r].length) {
+			return false;
+		}
+		for(int i = 0; i < w.length(); i++) {
+			if(!m[r][c].equals((w.charAt(i) + ""))) {
+				return false;
+			}
+			r--;
+			c++;
+		}
+		return true;
 	}
 
 	public boolean checkDiagUpLeft(String w, int r, int c)
 	{
-		return false;
+		if(r - w.length() < 0 || c - w.length() < 0) {
+			return false;
+		}
+		for(int i = 0; i < w.length(); i++) {
+			if(!m[r][c].equals((w.charAt(i) + ""))) {
+				return false;
+			}
+			r--;
+			c--;
+		}
+		return true;
 	}
 
 	public boolean checkDiagDownLeft(String w, int r, int c)
    {
-		return false;
+		if(r + w.length() > m.length || c - w.length() < 0) {
+			return false;
+		}
+		for(int i = 0; i < w.length(); i++) {
+			if(!m[r][c].equals((w.charAt(i) + ""))) {
+				return false;
+			}
+			r++;
+			c--;
+		}
+		return true;
 	}
 
 	public boolean checkDiagDownRight(String w, int r, int c)
 	{
-		return false;
+		if(r + w.length() > m.length || c + w.length() > m[r].length) {
+			return false;
+		}
+		for(int i = 0; i < w.length(); i++) {
+			if(!m[r][c].equals((w.charAt(i) + ""))) {
+				return false;
+			}
+			r++;
+			c++;
+		}
+		return true;
 	}
 
     public String toString()
     {
- 		return "";
+ 		return Arrays.toString(m);
     }
 }
