@@ -27,6 +27,10 @@ class BallTestTwo extends Canvas implements Runnable
 
 		//test the Ball thoroughly
 		System.out.println(ball.getColor());
+		System.out.println(ball.getHeight());
+		System.out.println(ball.getWidth());
+		System.out.println(ball.getX());
+		System.out.println(ball.getY());
 
 		//test all constructors
 		Ball one = new Ball();

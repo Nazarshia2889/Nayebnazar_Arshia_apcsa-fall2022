@@ -28,6 +28,12 @@ public class BlockTestTwo extends Canvas
 
 		Block four = new Block(450,50,20,60, Color.GREEN);
 		four.draw(window);
-		//add more test cases			
+		//add more test cases		
+		
+		Block five = new Block(320,50,20,60, Color.GREEN);
+		four.draw(window);
+		
+		Block size = new Block(450,800,20,60, Color.GREEN);
+		four.draw(window);
 	}
 }

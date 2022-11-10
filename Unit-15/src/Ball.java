@@ -13,33 +13,39 @@ public class Ball extends Block
 	public Ball()
 	{
 		super(200,200);
-		xSpeed = 3;
+		xSpeed = 1;
 		ySpeed = 1;
 	}
 
 	//add the other Ball constructors
 	public Ball(int x, int y) {
 		super(x, y);
-		xSpeed = 3;
+		xSpeed = 1;
 		ySpeed = 1;
 	}
 	
 	public Ball(int x, int y, int width) {
 		super(x, y, width);
-		xSpeed = 3;
+		xSpeed = 1;
 		ySpeed = 1;
 	}
 	
 	public Ball(int x, int y, int width, int height) {
 		super(x, y, width, height);
-		xSpeed = 3;
+		xSpeed = 1;
 		ySpeed = 1;
 	}
 	
 	public Ball(int x, int y, int width, int height, Color col) {
 		super(x, y, width, height, col);
-		xSpeed = 3;
+		xSpeed = 1;
 		ySpeed = 1;
+	}
+	
+	public Ball(int x, int y, int width, int height, int newXSpeed, int newYSpeed) {
+		super(x, y, width, height);
+		xSpeed = newXSpeed;
+		ySpeed = newYSpeed;
 	}
 	
 	public Ball(int x, int y, int width, int height, Color col, int newXSpeed, int newYSpeed) {
