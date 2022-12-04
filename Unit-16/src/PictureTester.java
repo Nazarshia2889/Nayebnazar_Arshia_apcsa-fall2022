@@ -83,11 +83,41 @@ public class PictureTester
     temple.explore();
   }
   
+  public static void testMirrorArms()
+  {
+    Picture snowman = new Picture("snowman.jpg");
+    snowman.explore();
+    snowman.mirrorArms();
+    snowman.explore();
+  }
+  
+  public static void testMirrorGull()
+  {
+    Picture temple = new Picture("seagull.jpg");
+    temple.explore();
+    temple.mirrorGulls();
+    temple.explore();
+  }
+  
   /** Method to test the collage method */
   public static void testCollage()
   {
     Picture canvas = new Picture("640x480.jpg");
     canvas.createCollage();
+    canvas.explore();
+  }
+  
+  public static void testCopy()
+  {
+    Picture canvas = new Picture("640x480.jpg");
+    canvas.createCollage2();
+    canvas.explore();
+  }
+  
+  public static void testMyCollage()
+  {
+    Picture canvas = new Picture("640x480.jpg");
+    canvas.myCollage();
     canvas.explore();
   }
   
@@ -98,6 +128,60 @@ public class PictureTester
     swan.edgeDetection(10);
     swan.explore();
   }
+  
+  public static void testEdgeDetection2()
+  {
+    Picture swan = new Picture("swan.jpg");
+    swan.edgeDetection2(10);
+    swan.explore();
+  }
+  
+  public static void testMirrorVerticalRightToLeft()
+  {
+  	Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorVerticalRightToLeft();
+    caterpillar.explore();
+  }
+  
+  public static void testMirrorHorizontal()
+  {
+  	Picture motorcycle = new Picture("redMotorcycle.jpg");
+  	motorcycle.explore();
+  	motorcycle.mirrorHorizontal();
+  	motorcycle.explore();
+  }
+  
+  public static void testMirrorHorizontalBotToTop()
+  {
+  	Picture motorcycle = new Picture("redMotorcycle.jpg");
+  	motorcycle.explore();
+  	motorcycle.mirrorHorizontalBotToTop();
+  	motorcycle.explore();
+  }
+  
+  public static void testMirrorDiagonal()
+  {
+  	Picture beach = new Picture("beach.jpg");
+  	beach.explore();
+  	beach.mirrorDiagonal();
+  	beach.explore();
+  }
+  
+  public static void testEncodeAndDecode() {
+	  Picture beach = new Picture("beach.jpg");
+	  Picture apple = new Picture("msg.jpg");
+	  
+	  beach.explore();
+	  apple.explore();
+	  
+	  beach.encode(apple);
+	  beach.explore();  
+	  beach.decode().explore();
+	  
+	  
+  }
+  
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -112,18 +196,24 @@ public class PictureTester
 //    testKeepOnlyGreen();
 //    testNegate();
 //    testGrayscale();
-    testFixUnderwater();
-    //testMirrorVertical();
-    //testMirrorTemple();
-    //testMirrorArms();
-    //testMirrorGull();
-    //testMirrorDiagonal();
-    //testCollage();
-    //testCopy();
-    //testEdgeDetection();
-    //testEdgeDetection2();
+//    testFixUnderwater();
+//    testMirrorVertical();
+//    testMirrorVerticalRightToLeft();
+//    testMirrorHorizontal();
+//    testMirrorHorizontalBotToTop();
+//    testMirrorTemple();
+//    testMirrorArms();
+//    testMirrorGull();
+//    testMirrorDiagonal();
+//    testCollage();
+//    testCopy();
+//    testMyCollage();
+//    testEdgeDetection();
+//    testEdgeDetection2();
+	  
+//	  Not needed
     //testChromakey();
-    //testEncodeAndDecode();
+    testEncodeAndDecode();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
