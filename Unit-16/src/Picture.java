@@ -600,7 +600,6 @@ public class Picture extends SimplePicture
 			  
 			  
 			  if(currPixel.getBlue() % 2 != 0) {
-//				  check 255
 				  if(currPixel.getBlue() == 255) {
 					  currPixel.setBlue(currPixel.getBlue() - 1);
 				  }
@@ -641,15 +640,6 @@ public class Picture extends SimplePicture
 				  else {
 					  cols.add(new int[] {(int) (sigmoid(col) * 10), (int) (sigmoid(col) * 100 % 10), (int) (sigmoid(col) * 1000 % 10) + 1});
 				  }
-//				  prevCol = (int) (sigmoid(col) * 1000);
-				  
-//				  cols.add(col);
-//				  System.out.println();
-//				  System.out.println("col: " + col);
-//				  System.out.println((int) logit((((int) (sigmoid(col) * 10)) % 10 / 10.0) + (((int) (sigmoid(col) * 100 % 10)) % 10 / 100.0) + (((int) (sigmoid(col) * 1000 % 10)) % 10 / 1000.0)));
-//				  System.out.println((int) logit((rows.get(rows.size()-1)[0] / 10.0) + (rows.get(rows.size()-1)[1] / 100.0) + (rows.get(rows.size()-1)[2] / 1000.0)));
-//				  System.out.println((int) logit((cols.get(cols.size()-1)[0] / 10.0) + (cols.get(cols.size()-1)[1] / 100.0) + (cols.get(cols.size()-1)[2] / 1000.0)));
-//				  System.out.println("row: " + row);
 				  
 			  }
 		  }
@@ -674,7 +664,6 @@ public class Picture extends SimplePicture
 		  
 		  currPixel = currPixels[this.getHeight() - row - 1][this.getWidth() - col - 1];
 		  currPixel.setGreen(currPixel.getGreen() + cols.get(i)[0]);
-//		  currPixel.setBlue(currPixel.getBlue() - 1);
 		  
 		  
 		  col++;
@@ -689,7 +678,6 @@ public class Picture extends SimplePicture
 		  
 		  pix2 = currPixels[this.getHeight() - row - 1][this.getWidth() - col - 1];
 		  pix2.setGreen(pix2.getGreen() + cols.get(i)[1]);
-//		  pix2.setBlue(pix2.getBlue() - 1);
 		  
 		  
 		  col++;
@@ -704,12 +692,7 @@ public class Picture extends SimplePicture
 		  
 		  pix3 = currPixels[this.getHeight() - row - 1][this.getWidth() - col - 1];
 		  pix3.setGreen(pix3.getGreen() + cols.get(i)[2]);
-//		  pix3.setBlue(pix3.getBlue() - 1);
-		  
-//		  System.out.println();
-//		  System.out.println((int) logit((currPixels[row][col - 2].getRed() % 10 / 10.0) + (currPixels[row][col - 1].getRed() % 10 / 100.0) + (currPixels[row][col].getRed() % 10 / 1000.0)));
-//		  System.out.println((int) logit((currPixels[this.getHeight() - row - 1][this.getWidth() - (col-2) - 1].getGreen() % 10 / 10.0) + (currPixels[this.getHeight() - row - 1][this.getWidth() - (col-1) - 1].getGreen() % 10 / 100.0) + (currPixels[this.getHeight() - row - 1][this.getWidth() - col - 1].getGreen() % 10 / 1000.0)));
-		  
+
 		  col++;
 		  
 		  if(col + 3 > this.getWidth()) {
@@ -758,10 +741,6 @@ public class Picture extends SimplePicture
 			  if (pixels[row][col].getBlue() % 2 == 1) {
 				  int rowRetrieved = (int) logit((pixels[row][col].getRed() % 10 / 10.0) + (pixels[row][col + 1].getRed() % 10 / 100.0) + (pixels[row][col + 2].getRed() % 10 / 1000.0));
 				  int colRetrieved = (int) logit((pixels[this.getHeight() - row - 1][this.getWidth() - col - 1].getGreen() % 10 / 10.0) + (pixels[this.getHeight() - row - 1][this.getWidth() - (col+1) - 1].getGreen() % 10 / 100.0) + (pixels[this.getHeight() - row - 1][this.getWidth() - (col+2) - 1].getGreen() % 10 / 1000.0));
-	//				  System.out.println((int) logit((pixels[row][col].getRed() % 10 / 10.0) + (pixels[row][col + 1].getRed() % 10 / 100.0) + (pixels[row][col + 2].getRed() / 1000.0)));
-//					  System.out.println();
-//				  System.out.println(rowRetrieved);
-//				  System.out.println(colRetrieved);
 				  messagePixel = messagePixels[rowRetrieved][colRetrieved];
 				  messagePixel.setColor(Color.BLACK);
 				  
