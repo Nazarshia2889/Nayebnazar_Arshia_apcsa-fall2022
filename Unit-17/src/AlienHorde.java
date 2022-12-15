@@ -25,7 +25,7 @@ public class AlienHorde
 				x = 0;
 				y += 50;
 			}
-			aliens.add(new Alien(x += 50, y, 30, 30, 2));
+			aliens.add(new Alien(x += 50, y, 30, 30, 1));
 		}
 	}
 
@@ -35,7 +35,7 @@ public class AlienHorde
 			x = 0;
 			y += 30;
 		}
-		aliens.add(new Alien(x += 50, y, 30, 30, 10));
+		aliens.add(new Alien(x += 50, y, 30, 30, 2));
 	}
 
 	public void drawEmAll( Graphics window )
@@ -59,9 +59,14 @@ public class AlienHorde
 				if((shots.get(j).getX() >= aliens.get(i).getX() && shots.get(j).getX() <= aliens.get(i).getX() + aliens.get(i).getWidth()
 				&& shots.get(j).getY() >= aliens.get(i).getY() && shots.get(j).getY() <= aliens.get(i).getY() + aliens.get(i).getHeight())) {
 					aliens.remove(i);
+					shots.remove(j);
 				}
 			}
 		}
+	}
+	
+	public List<Alien> getHorde() {
+		return aliens;
 	}
 
 	public String toString()

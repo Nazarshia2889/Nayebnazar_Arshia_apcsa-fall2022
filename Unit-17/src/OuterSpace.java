@@ -3,6 +3,7 @@
 //Name -
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Canvas;
@@ -33,6 +34,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 	private boolean[] keys;
 	private BufferedImage back;
+	
+	boolean going = true;
 
 
 	public OuterSpace()
@@ -49,7 +52,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 //		alienTwo = new Alien(400, 100, 30, 30, 10);
 //		
 //		ammo = new Ammo(300, 500, 5);
-		horde = new AlienHorde(20);
+		horde = new AlienHorde(40);
 		shots = new Bullets();
 
 		this.addKeyListener(this);
@@ -65,59 +68,82 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 	public void paint( Graphics window )
 	{
-		//set up the double buffering to make the game animation nice and smooth
-		Graphics2D twoDGraph = (Graphics2D)window;
-
-		//take a snap shop of the current screen and same it as an image
-		//that is the exact same width and height as the current screen
-		if(back==null)
-		   back = (BufferedImage)(createImage(getWidth(),getHeight()));
-
-		//create a graphics reference to the back ground image
-		//we will draw all changes on the background image
-		Graphics graphToBack = back.createGraphics();
-
-		graphToBack.setColor(Color.BLUE);
-		graphToBack.drawString("StarFighter ", 25, 50 );
-		graphToBack.setColor(Color.BLACK);
-		graphToBack.fillRect(0,0,800,600);
-
-		if(keys[0] == true)
-		{
-			ship.move("LEFT");
+		if(going) {
+			//set up the double buffering to make the game animation nice and smooth
+			Graphics2D twoDGraph = (Graphics2D)window;
+	
+			//take a snap shop of the current screen and same it as an image
+			//that is the exact same width and height as the current screen
+			if(back==null)
+			   back = (BufferedImage)(createImage(getWidth(),getHeight()));
+	
+			//create a graphics reference to the back ground image
+			//we will draw all changes on the background image
+			Graphics graphToBack = back.createGraphics();
+	
+			graphToBack.setColor(Color.BLUE);
+			graphToBack.drawString("StarFighter ", 25, 50 );
+			graphToBack.setColor(Color.BLACK);
+			graphToBack.fillRect(0,0,800,600);
+	
+			if(keys[0] == true)
+			{
+				ship.move("LEFT");
+			}
+			else if(keys[1] == true) {
+				ship.move("RIGHT");
+			}
+			else if(keys[2] == true) {
+				ship.move("UP");
+			}
+			else if(keys[3] == true) {
+				ship.move("DOWN");
+			}
+			
+			if(keys[4] == true) {
+				shots.add(new Ammo(ship.getX(), ship.getY(), 5));
+				keys[4] = false;
+			}
+			
+			ship.draw(graphToBack);
+			
+			
+			
+	
+			//add code to move Ship, Alien, etc.
+			shots.moveEmAll();
+			horde.moveEmAll();
+			
+			shots.drawEmAll(graphToBack);
+			horde.drawEmAll(graphToBack);
+			
+			
+			
+			shots.cleanEmUp();
+			horde.removeDeadOnes(shots.getList());
+			
+			if(horde.getHorde().size() == 0) {
+				graphToBack.setColor(Color.green);
+				graphToBack.drawString("Ship won", 300, 300);
+				going = false;
+			}
+	
+	
+			//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
+			
+			for(Alien alien : horde.getHorde()) {
+				if((ship.getX() >= alien.getX() && ship.getX() <= alien.getX() + alien.getWidth()
+					&& ship.getY() >= alien.getY() && ship.getY() <= alien.getY() + alien.getHeight())) {
+					graphToBack.setColor(Color.red);
+					graphToBack.drawString("GAME OVER", 300, 300);
+					going = false;
+								
+				}
+			}
+			
+	
+			twoDGraph.drawImage(back, null, 0, 0);
 		}
-		else if(keys[1] == true) {
-			ship.move("RIGHT");
-		}
-		else if(keys[2] == true) {
-			ship.move("UP");
-		}
-		else if(keys[3] == true) {
-			ship.move("DOWN");
-		}
-		
-		if(keys[4] == true) {
-			shots.add(new Ammo(ship.getX(), ship.getY(), 5));
-			keys[4] = false;
-		}
-		
-		ship.draw(graphToBack);
-		
-		shots.moveEmAll();
-		shots.drawEmAll(graphToBack);
-		shots.cleanEmUp();
-		
-
-		//add code to move Ship, Alien, etc.
-		horde.drawEmAll(graphToBack);
-		horde.moveEmAll();
-		horde.removeDeadOnes(shots.getList());
-
-
-		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
-		
-
-		twoDGraph.drawImage(back, null, 0, 0);
 	}
 
 

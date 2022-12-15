@@ -67,7 +67,7 @@ public class Alien extends MovingThing
 		}
 		else if(direction == "RIGHT") {
 			if(getX() > 750) {
-				setX(50);
+				setX(0);
 				setY(getY() + 50);
 			}
 			setX(getX() + speed);

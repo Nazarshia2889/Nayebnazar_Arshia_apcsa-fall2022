@@ -64,16 +64,24 @@ public class Ship extends MovingThing
 	{
 		//add code here
 		if(direction == "LEFT") {
-			setX(getX() - speed);
+			if(!(getX() - speed < 0)) {
+				setX(getX() - speed);
+			}
 		}
 		else if(direction == "RIGHT") {
-			setX(getX() + speed);
+			if(!(getX() + speed > 750)) {
+				setX(getX() + speed);
+			}
 		}
 		else if(direction == "UP") {
-			setY(getY() - speed);
+			if(!(getY() - speed < 0)) {
+				setY(getY() - speed);
+			}
 		}
 		else if(direction == "DOWN") {
-			setY(getY() + speed);
+			if(!(getY() + speed > 500)) {
+				setY(getY() + speed);
+			}
 		}
 		
 	}
@@ -82,6 +90,8 @@ public class Ship extends MovingThing
 	{
    	window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
 	}
+	
+	
 
 	public String toString()
 	{
