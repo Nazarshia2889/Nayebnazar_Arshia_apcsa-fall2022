@@ -132,8 +132,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 			//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
 			
 			for(Alien alien : horde.getHorde()) {
-				if((ship.getX() >= alien.getX() && ship.getX() <= alien.getX() + alien.getWidth()
-					&& ship.getY() >= alien.getY() && ship.getY() <= alien.getY() + alien.getHeight())) {
+				if((ship.getX() >= alien.getX() && ship.getX() <= alien.getX() + alien.getWidth() - 10
+					&& ship.getY() >= alien.getY() && ship.getY() <= alien.getY() + alien.getHeight() - 10)) {
 					graphToBack.setColor(Color.red);
 					graphToBack.drawString("GAME OVER", 300, 300);
 					going = false;
